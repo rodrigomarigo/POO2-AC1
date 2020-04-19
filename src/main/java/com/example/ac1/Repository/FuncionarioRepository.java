@@ -1,6 +1,5 @@
 package com.example.ac1.Repository;
 
-import java.util.HashMap;
 
 import com.example.ac1.Entity.Funcionario;
 

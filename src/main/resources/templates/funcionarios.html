@@ -3,20 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funcionarios</title>
+    <title>Funcionarios</title> 
 </head>
 <body>
     <!--adicionando novos funcionários-->
-    <form th:action="@{/app/funcionarios}" method="POST">
-        <input type="number" name="id" placeholder="ID" />
-        <input type="text" name="nome" placeholder="Nome"/>
-        <input type="text" name="cargo" placeholder="Cargo"/>
-        <input type="number" name="salario"placeholder="Salário"/>
-        <input type="text" name="setor"placeholder="Setor" />
-        <input type="submit" value="Cadastrar" />
+    <form th:action="@{/app/funcionarios}" th:object="${funcionario}" method="POST" >
+        <table>
+            <tr><td>Novo Funcionário</td></tr>
+            <tr>
+                <td><input type="text" th:field="*{nome}" placeholder="Nome"/></td>
+                <!--valida a informação inserida no campo, se for invalida, avisa-->
+                <td th:if="${#fields.hasErrors('nome')}" >Nome inválido!</td>   
+            </tr>
+            <tr>
+                <td><input type="text" name="cargo" placeholder="Cargo"/></td>
+                <td th:if="${#fields.hasErrors('cargo')}" >Cargo inválido!</td>
+            </tr>
+            <tr>
+                <td><input type="number" name="salario"placeholder="Salário"/></td>
+                <td th:if="${#fields.hasErrors('salario')}" >Salário inválido!</td>
+            </tr>
+            <tr>
+                <td><input type="text" name="setor"placeholder="Setor" /></td>
+                <td th:if="${#fields.hasErrors('setor')}" >Setor inválido!</td>
+            </tr>
+            
+            <td><input type="submit" value="Cadastrar" /></td>
+        </table>
+        
     </form>
-
+    <p></p>
     <table>
+        <!--mostra todos os funcionários já cadastrados-->
+        <tr>Funcionários cadastrados</tr>
         <tr th:each="funcionario : ${funcionarios}">
             <td th:text="${funcionario.id}"></td>
             <td th:text="${funcionario.nome}"></td>

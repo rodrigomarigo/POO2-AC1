@@ -17,7 +17,9 @@ public class FuncionarioService {
         return repository.findAll();
     }
 
+    //adiciona um funcionario no banco
     public void addFuncionario(Funcionario f){
+
         repository.saveAndFlush(f);
     }
 }   
