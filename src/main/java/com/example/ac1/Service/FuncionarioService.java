@@ -16,4 +16,8 @@ public class FuncionarioService {
     public List<Funcionario> getFuncionarios(){
         return repository.findAll();
     }
+
+    public void addFuncionario(Funcionario f){
+        repository.saveAndFlush(f);
+    }
 }   

@@ -6,7 +6,16 @@
     <title>Funcionarios</title>
 </head>
 <body>
-    <p>hello!!!!</p>
+    <!--adicionando novos funcionários-->
+    <form th:action="@{/app/funcionarios}" method="POST">
+        <input type="number" name="id" placeholder="ID" />
+        <input type="text" name="nome" placeholder="Nome"/>
+        <input type="text" name="cargo" placeholder="Cargo"/>
+        <input type="number" name="salario"placeholder="Salário"/>
+        <input type="text" name="setor"placeholder="Setor" />
+        <input type="submit" value="Cadastrar" />
+    </form>
+
     <table>
         <tr th:each="funcionario : ${funcionarios}">
             <td th:text="${funcionario.id}"></td>
