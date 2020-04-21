@@ -43,7 +43,6 @@ public class Funcionario implements Serializable {
     @Size(min=2, max=50)
     private String setor;
 
-
     public int getId() {
         return id;
     }
@@ -89,9 +88,5 @@ public class Funcionario implements Serializable {
         return "Funcionario [cargo=" + cargo + ", id=" + id + ", nome=" + nome + ", salario=" + salario + ", setor="
                 + setor + "]";
     }
-
-    
-
-
 
 }

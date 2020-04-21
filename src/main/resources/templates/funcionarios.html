@@ -6,31 +6,24 @@
     <title>Funcionarios</title> 
 </head>
 <body>
-    <!--adicionando novos funcionários-->
-    <form th:action="@{/app/funcionarios}" th:object="${funcionario}" method="POST" >
+    <form action="#" th:action="@{/novoFuncionario}" th:object="${funcionario}" method="POST">
         <table>
-            <tr><td>Novo Funcionário</td></tr>
             <tr>
-                <td><input type="text" th:field="*{nome}" placeholder="Nome"/></td>
-                <!--valida a informação inserida no campo, se for invalida, avisa-->
-                <td th:if="${#fields.hasErrors('nome')}" >Nome inválido!</td>   
+                <td><input type="text" name="nome" placeholder="Nome"/></td>
             </tr>
             <tr>
                 <td><input type="text" name="cargo" placeholder="Cargo"/></td>
-                <td th:if="${#fields.hasErrors('cargo')}" >Cargo inválido!</td>
             </tr>
             <tr>
-                <td><input type="number" name="salario"placeholder="Salário"/></td>
-                <td th:if="${#fields.hasErrors('salario')}" >Salário inválido!</td>
+                <td><input type="text" name="salario" placeholder="Salario"/></td>
             </tr>
             <tr>
-                <td><input type="text" name="setor"placeholder="Setor" /></td>
-                <td th:if="${#fields.hasErrors('setor')}" >Setor inválido!</td>
+                <td><input type="text" name="setor" placeholder="Setor"/></td>
             </tr>
-            
-            <td><input type="submit" value="Cadastrar" /></td>
         </table>
-        
+
+
+        <input type="submit" value="Cadastrar Novo Funcionário" />
     </form>
     <p></p>
     <table>

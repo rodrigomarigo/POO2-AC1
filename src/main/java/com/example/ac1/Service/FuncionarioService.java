@@ -19,7 +19,6 @@ public class FuncionarioService {
 
     //adiciona um funcionario no banco
     public void addFuncionario(Funcionario f){
-
         repository.saveAndFlush(f);
     }
 }   
